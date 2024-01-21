@@ -98,3 +98,21 @@ width: auto;
     width: 100%;
     cursor: pointer;
 }
+.form-control.success input{
+    border-color: var(--color-success);
+}
+.form-control.error input{
+    border-color: var(--color-error);
+}
+.form-control.success i.fa-check-circle{
+    color: var(--color-success);
+    visibility: visible;
+}
+.form-control.error i.fa-exclamation{
+    color: var(--color-error);
+    visibility: visible;
+}
+.form-control.error small{
+    color: var(--color-error);
+    visibility: visible;
+}
