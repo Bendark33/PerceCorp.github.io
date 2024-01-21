@@ -100,6 +100,7 @@ for (let aa = 0; aa < listRoleBrut.length; aa++) {
 const number = listFinal.length;
 
 statut = doublon(listPlayeurNet,listRoleNet);
+console.log(statut);
 
 for (let a = 0; a < number; a++) {
     const random = Math.floor(Math.random() * listFinal.length);
@@ -110,7 +111,7 @@ for (let a = 0; a < number; a++) {
     fusion.push(place);
   }
 
-if (statut = "ok"){  
+if (statut == "ok"){  
 for (let b = 0; b < fusion.length; b++) {
 let per = fusion[b];
 let pers = per[0];
