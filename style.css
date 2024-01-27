@@ -6,12 +6,12 @@
     list-style: none;
 }
 
-.index{
+/*.index{
 height: 100vh;
 width: 100%;
 background-image: url(image/Montagne.webp);
 background-size: cover;
-}
+}*/
 
 .equipe {
     height: 100vh;
@@ -19,6 +19,7 @@ background-size: cover;
     background-image: url(image/enconstruction.png);
     background-size: cover;
     }
+
 
 .navbar{
 position: absolute;
@@ -28,6 +29,7 @@ align-items: center;
 justify-content: space-between;
 width: 100%;
 box-sizing: border-box;
+background: 0;
 }
 .navbar a {
 color:rgb(139, 23, 23);
@@ -57,7 +59,13 @@ font-weight: bold;
     width: 35px;
     
     }
-
+    #background-video {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        position: fixed;
+        z-index: -1;
+        }
 
     
 @media screen and (max-width: 900px){
