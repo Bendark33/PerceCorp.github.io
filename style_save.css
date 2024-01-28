@@ -1,6 +1,10 @@
 *{
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
 }
+
 :root{
     --color-first:#1ec36dd9;
     --color-second:#f0f0f0;
@@ -18,6 +22,46 @@ body{
     margin: 0;
     overflow: hidden;
 }
+
+.navbar{
+    position: absolute;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    background: 0;
+    }
+    .navbar a {
+    color:rgb(139, 23, 23);
+    
+    }
+    .navbar .logo{
+    font-size: 2em;
+    font-weight: bold;
+    width: 20%;
+    }
+    
+    .navbar .nav-links ul {
+        display: flex;
+    }
+    .navbar .nav-links ul li{
+        margin: 0 25px;
+    }
+    
+    .navbar .nav-links ul li.active a{
+        color: red;
+        font-weight: 600;
+    }
+    .navbar .menu-hamburger {
+        position: absolute;
+        display: none;
+        top: 50px;
+        right: 50px;
+        width: 35px;
+        
+        }
 
 #gauche{
     width: 600px;
