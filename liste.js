@@ -39,7 +39,6 @@ function team() {
     for (let aa = 0; aa < listRoleBrut.length; aa++) {
         if (listRoleBrut[aa] !== '') {
             const placerole = [listPlayeurBrut[aa], listRoleBrut[aa]];
-            console.log("T" + placerole);
             listPoste = removeItemOnce(listPoste, listRoleBrut[aa]);
             fusion.push(placerole);
         }
@@ -52,8 +51,8 @@ function team() {
     const number = joueursSansPostePredefini.length;
 
     let statut = doublon(listPlayeurNet, listRoleNet);
-    console.log(statut);
-    console.log("Postes restants: "+ postesRestants);
+    // console.log(statut);
+    // console.log("Postes restants: "+ postesRestants);
     for (let a = 0; a < number; a++) {
         if (postesRestants.length === 0) break; // Au cas où il n'y aurait plus de postes disponibles
 
@@ -61,8 +60,8 @@ function team() {
 
         const joueur = joueursSansPostePredefini.splice(indexJoueur, 1)[0];
         const poste = postesRestants.splice(0, 1)[0];
-        console.log("Joueur: "+ joueur + " Poste: "+ poste);
-        console.log("Postes restants: "+ postesRestants);
+        // console.log("Joueur: "+ joueur + " Poste: "+ poste);
+        // console.log("Postes restants: "+ postesRestants);
         fusion.push([joueur, poste]);
     }
 
@@ -110,12 +109,12 @@ function doublon(array, array2) {
     let unique2 = array2.filter((x, i, a) => a.indexOf(x) === i);
     if (array.length !== unique.length) {
         let message = 'Il y a 2 fois le meme joueur';
-        console.log("ZZZZZZZZZZ");
+        console.log("2 fois le même joueur !");
         setError(joueurs[10], message); // Affiche l'erreur sur le dernier joueur
         statut = "ko";
     } else if (array2.length !== unique2.length) {
         let message = 'Il y a 2 fois le meme role';
-        console.log("ZZZZZZZZZZ");
+        console.log("2 fois le même rôle !");
         setError(joueurs[10], message); // Affiche l'erreur sur le dernier joueur
         statut = "ko";
     }
