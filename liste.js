@@ -24,30 +24,10 @@ form.addEventListener('reset', e => {
 });
 
 
-document.getElementById('copy-to-clipboard-button').addEventListener('click', function() {
-    let teamComposition = "Composition de l'équipe:\n";
-    joueurs.forEach((joueur, index) => {
-        if (joueur.value.trim() && roles[index].value) {
-            teamComposition += `${roles[index].value}: ${joueur.value.trim()}\n`;
-        }
-    });
 
-    // Utiliser l'API Clipboard pour copier le texte
-    navigator.clipboard.writeText(teamComposition).then(() => {
-        console.log('Composition copiée dans le presse-papier !');
-    }).catch(err => {
-        console.error('Erreur lors de la copie :', err);
-    });
-});
-
-
-
-
-// Fonctions
 function team() {
-    //Reset des champs
+    // Reset des champs
     let listPoste = ['BU', 'AD', 'AG', 'MOCD', 'MOCG', 'MDC', 'DD', 'DG', 'DCD', 'DCG', 'G'];
-
     reset(listPoste);
     setReset(joueurs[10]);
 
@@ -55,43 +35,43 @@ function team() {
     let listPlayeurBrut = joueurs.map(joueur => joueur.value.trim());
     let listRoleBrut = roles.map(role => role.value);
     let listRoleNet = removeItemOnce(listRoleBrut, '');
-    console.log(listRoleNet);
-
     let fusion = [];
     for (let aa = 0; aa < listRoleBrut.length; aa++) {
         if (listRoleBrut[aa] !== '') {
             const placerole = [listPlayeurBrut[aa], listRoleBrut[aa]];
-            console.log(placerole);
             listPoste = removeItemOnce(listPoste, listRoleBrut[aa]);
             fusion.push(placerole);
         }
     }
 
     let listPlayeurNet = removeItemOnce(listPlayeurBrut, '');
-    let listFinal = listPoste.slice(0, listPlayeurNet.length);
-    const number = listFinal.length;
+    let postesRestants = listPoste.filter(p => !fusion.some(f => f[1] === p)); //
+    
+    let joueursSansPostePredefini = listPlayeurNet.filter(p => !fusion.some(f => f[0] === p));
+    const number = joueursSansPostePredefini.length;
 
     let statut = doublon(listPlayeurNet, listRoleNet);
-    console.log(statut);
-
+    // console.log(statut);
+    // console.log("Postes restants: "+ postesRestants);
     for (let a = 0; a < number; a++) {
-        const random = Math.floor(Math.random() * listFinal.length);
-        const random2 = Math.floor(Math.random() * listPlayeurNet.length);
-        const place = [listPlayeurNet[random2], listFinal[random]];
-        listFinal = removeItemOnce(listFinal, listFinal[random]);
-        listPlayeurNet = removeItemOnce(listPlayeurNet, listPlayeurNet[random2]);
-        fusion.push(place);
+        if (postesRestants.length === 0) break; // Au cas où il n'y aurait plus de postes disponibles
+
+        const indexJoueur = Math.floor(Math.random() * joueursSansPostePredefini.length);
+
+        const joueur = joueursSansPostePredefini.splice(indexJoueur, 1)[0];
+        const poste = postesRestants.splice(0, 1)[0];
+        // console.log("Joueur: "+ joueur + " Poste: "+ poste);
+        // console.log("Postes restants: "+ postesRestants);
+        fusion.push([joueur, poste]);
     }
 
-    if (statut == "ok") {
-        for (let b = 0; b < fusion.length; b++) {
-            let per = fusion[b];
-            let pers = per[0];
-            let place2 = per[1];
-            document.getElementById(place2).value = pers;
-        }
+    // Mise à jour de l'interface utilisateur si statut est "ok"
+    if (statut === "ok") {
+        fusion.forEach(([joueur, poste]) => {
+            document.getElementById(poste).value = joueur;
+        });
     }
-
+    
     let teamComposition = "Composition de l'équipe:\n";
     fusion.forEach(pair => {
         teamComposition += `${pair[1]}-> ${pair[0]} |\n`; // Format : Position-> Joueur 
@@ -104,6 +84,8 @@ function team() {
         console.error('Erreur lors de la copie :', err);
     });
 }
+
+
 
 function removeItemOnce(array, value) {
     return array.filter(item => item !== value);
@@ -127,12 +109,12 @@ function doublon(array, array2) {
     let unique2 = array2.filter((x, i, a) => a.indexOf(x) === i);
     if (array.length !== unique.length) {
         let message = 'Il y a 2 fois le meme joueur';
-        console.log("ZZZZZZZZZZ");
+        console.log("2 fois le même joueur !");
         setError(joueurs[10], message); // Affiche l'erreur sur le dernier joueur
         statut = "ko";
     } else if (array2.length !== unique2.length) {
         let message = 'Il y a 2 fois le meme role';
-        console.log("ZZZZZZZZZZ");
+        console.log("2 fois le même rôle !");
         setError(joueurs[10], message); // Affiche l'erreur sur le dernier joueur
         statut = "ko";
     }
