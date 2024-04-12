@@ -13,28 +13,29 @@ background-image: url(image/Montagne.webp);
 background-size: cover;
 }*/
 
-.equipe {
-    height: 100vh;
-    width: 100%;
-    background-image: url(image/enconstruction.png);
+html{
+    background-image: url(image/rift.jpg);
     background-size: cover;
-    }
+    
 
-
+}
 .navbar{
-position: absolute;
-padding: 50px;
-display: flex;
-align-items: center;
-justify-content: space-around;
-width: 100%;
-box-sizing: border-box;
-background: 0;
+    position: absolute;
+    padding-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+    background: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-.navbar a {
-color:rgb(139, 23, 23);
 
-}
 .navbar .logo{
 font-size: 1em;
 font-weight: bold;
@@ -49,8 +50,11 @@ width: 25%;
 }
 
 .navbar .nav-links ul li.active a{
-    color: red;
-    font-weight: 600;
+    color: rgb(214, 214, 214);
+    font-weight: bold;
+    background-color: rgb(33, 33, 33);
+    padding:5px;
+    border-radius: 10px;
 }
 .navbar .menu-hamburger {
     position: absolute;
@@ -110,11 +114,10 @@ color: white;
     font-size: 1.6rem;
     margin: 1rem 0 4rem;
 }
-
-
-    
+ 
 @media screen and (max-width: 900px){
     .navbar{
+        user-select: none;
         padding: 0;
     }
     .nav-links{
@@ -153,3 +156,144 @@ color: white;
     }
 }
 
+.container{
+    display: flex;
+    position:absolute;
+    top: 25vh;
+    margin-left: 50vh;
+    color:white;
+    font-size: 1.5em;
+    padding:10px;
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+    
+}
+input, select{
+
+    font-size: 0.8em;
+}
+
+.box{
+    display:flex;
+    margin: 5px 0;
+}
+.box label{
+    margin-right: 13px;
+}
+
+.form-control input{
+    margin-right: 7px;
+}
+
+.switch-container {
+    display: inline-block;
+    position: relative;
+}
+
+.balance-switch {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.switch-div{
+    font-size: 0.8em;
+}
+.switch-label {
+    position: absolute;
+    cursor: pointer;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 34px;
+}
+
+.switch-label:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    
+    background-color: white;
+    transition: .5s;
+    border-radius: 50%;
+}
+
+.balance-switch:checked + .switch-label {
+    background-color: #024705;
+}
+
+.balance-switch:checked + .switch-label:before {
+    transform: translateX(20px);
+}
+
+#switch-status {
+    margin-left: 70px;
+    font-weight: bold;
+}
+
+.liste-joueurs{
+    padding:10px;
+    background-color: black;
+    border-radius: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.equipes{
+    margin-left: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    height: fit-content;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    color: white;
+    border-bottom: 1px solid rgb(119, 119, 119);
+    
+}
+.equipe1{
+    border-right: 1px solid rgb(119, 119, 119);
+}
+
+.equipe1-joueurs, .equipe2-joueurs{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+}
+textarea { 
+    height: 30px;
+    width: 100%;
+    resize: none; 
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 5px;
+
+}
+
+.btn-generate{
+
+    padding: 10px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.btn-reset{
+    padding: 10px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    border-radius: 15px;
+    margin-top: 10px;
+}
