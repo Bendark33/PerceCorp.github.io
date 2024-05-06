@@ -13,11 +13,15 @@ background-image: url(image/Montagne.webp);
 background-size: cover;
 }*/
 
-html{
+#bodyLOL{
     background-image: url(image/rift.jpg);
     background-size: cover;
-    
+}
 
+#bodyINDEX{
+    background-image: url(image/medieval.webp);
+    background-size: cover;
+    
 }
 .navbar{
     position: absolute;
@@ -72,11 +76,7 @@ width: 25%;
         z-index: -1;
         filter: brightness(30%);
         }
-h1 {
-        position: absolute;
-        justify-content: center;
-        font-weight: bold;
-    }
+
 section {
 
     min-height: 100vh;
@@ -84,20 +84,25 @@ section {
     font-weight: bold;
 }
 .home {
-
-display: flex;
-align-items: center;
-padding: 0 9%;
-color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 9%;
+    color: white;
+    
 }
 .home-content {
-    max-width: 80rem;
+    padding:15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    
+    
 }
 
 .home-content h1{
     font-size: 5.6rem;
     font-weight: 700;
-    line-height: 0;
+    margin: 0rem 0rem 3rem 5rem;
+    
 }
 .home-content .text-animated{
     position: relative;
@@ -110,12 +115,15 @@ color: white;
     -webkit-text-stroke: .7px var(red);
 }
 .home-content p{
-
     font-size: 1.6rem;
-    margin: 1rem 0 4rem;
+    margin: 2rem 0 2rem;
 }
  
-@media screen and (max-width: 900px){
+.outils{
+    margin-left:60px;
+}
+
+@media screen and (max-width: 900px){ 
     .navbar{
         user-select: none;
         padding: 0;
@@ -172,9 +180,19 @@ color: white;
     
 }
 input, select{
-
+    color:white;
     font-size: 0.8em;
+    background-color: rgb(30, 29, 29);
 }
+/* Dans le cas ou y'a une erreur dans l'input */
+input.error{
+    border: 2px dashed red;
+}
+/* Dans le cas ou y'a une erreur dans le select */
+select.error{
+    border: 1px dashed red;
+}
+
 
 .box{
     display:flex;
@@ -236,7 +254,7 @@ input, select{
 
 .liste-joueurs{
     padding:10px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     margin-top: auto;
     margin-bottom: auto;
@@ -246,11 +264,23 @@ input, select{
     margin-top: auto;
     margin-bottom: auto;
     display: flex;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     color: white;
     height: fit-content;
 }
+
+.postes{
+    margin-left: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    height: fit-content;
+}
+
+
 
 .header{
     display: flex;
@@ -271,13 +301,29 @@ input, select{
     border-radius: 15px;
     color: white;
 }
-textarea { 
+
+.liste-postes{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: space-between;
+}
+.liste-postes label {
+    margin-left: 5px;
+}
+
+textarea {
+    color: white;
     height: 30px;
     width: 100%;
     resize: none; 
     font-size: 1.2em;
     text-align: center;
     border-radius: 5px;
+    background-color: rgb(35, 35, 35);
 
 }
 
@@ -297,3 +343,4 @@ textarea {
     border-radius: 15px;
     margin-top: 10px;
 }
+
