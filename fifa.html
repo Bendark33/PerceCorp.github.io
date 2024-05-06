@@ -1,270 +1,294 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PERCE CORP</title>
-    <link rel="stylesheet" href="CSS/css/all.min.css" />
-    <link rel="stylesheet" href="style_save.css" />
-    <script src="liste.js" defer></script>
-  </head>
-
-  <body>
-    <div class="container" id="gauche">
-      <div class="header">
-        <h2>EQUIPE</h2>
-      </div>
-
-      <form class="form" id="form">
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 1</label>
-            <input type="text" id="j1" tabindex="1"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select1">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
+    <link rel="stylesheet" href="style.css">
+    <script src="fifa.js"></script>
+</head>
+<video id = "background-video" autoplay loop muted>
+    <source src="image/EA SPORTS FC 24  Official Gameplay Trailer.mp4" type="video/mp4"></video>
+</video>
+<body id="bodyFifa">
+    <nav class = "navbar">
+        <a href="index.html" class="logo">
+            <img src="image/PPPerce.png" class="logo">
+        </a>
+        <div class="nav-links">
+            <ul>
+                <li class="active"><a href = "">CLUB PRO</a></li>
+                <li class="active"><a href = "equipe_lol.html">EQUIPES LOL</a></li>
+                <li class="active"><a href = "https://bit.ly/roadto_m5">MAITRISE 5</a></li>
+            </ul>
         </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 2</label>
-            <input type="text" id="j2" tabindex="2"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select2">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
+    </nav>
+    <div class="container">
+        <div class="liste-joueurs">
+        <div class="header">
+            <h2>Liste joueurs</h2>
         </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 3</label>
-            <input type="text" id="j3" tabindex="3"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select3">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
+        <div class="form">
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 1</label>
+                    <input type="text" id="j1" tabindex="1"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select1">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 2</label>
+                    <input type="text" id="j2" tabindex="2"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select2">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 3</label>
+                    <input type="text" id="j3" tabindex="3"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select3">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 4</label>
+                    <input type="text" id="j4" tabindex="4"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select4">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 5</label>
+                    <input type="text" id="j5" tabindex="5"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select5">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 6</label>
+                    <input type="text" id="j6" tabindex="6"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select6">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 7</label>
+                    <input type="text" id="j7" tabindex="7"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select7">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 8</label>
+                    <input type="text" id="j8" tabindex="8"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select8">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label>Joueur 9</label>
+                    <input type="text" id="j9" tabindex="9"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select9">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label style="margin-right: 1px;">Joueur 10</label>
+                    <input type="text" id="j10" tabindex="10"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select10">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form-control">
+                    <label style="margin-right: 1px;">Joueur 11</label>
+                    <input type="text" id="j11" tabindex="11"/>
+                </div>
+                <div class="input">
+                    <select name="poste" id="poste-select11">
+                        <option value></option>
+                        <option value="DD">DD</option>
+                        <option value="DG">DG</option>
+                        <option value="DCD">DCD</option>
+                        <option value="DCG">DCG</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button class="btn-generate">Générer</button>
+                <button class="btn-reset">Reset</button>
+                             
+            </div>
         </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 4</label>
-            <input type="text" id="j4" tabindex="4"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select4">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 5</label>
-            <input type="text" id="j5" tabindex="5"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select5">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 6</label>
-            <input type="text" id="j6" tabindex="6"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select6">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 7</label>
-            <input type="text" id="j7" tabindex="7"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select7">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 8</label>
-            <input type="text" id="j8" tabindex="8"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select8">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 9</label>
-            <input type="text" id="j9" tabindex="9"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select9">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 10</label>
-            <input type="text" id="j10" tabindex="10"/>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select10">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="ligne">
-          <div class="form-control">
-            <label for="">Joueur 11</label>
-            <input type="text" id="j11" tabindex="11"/>
-            <i class="fas fa-check-circle"></i>
-            <i class="fas fa-exclamation"></i>
-            <small>Message d'erreur</small>
-          </div>
-          <div class="input">
-            <select name="role" id="role-select11">
-              <option value="">--</option>
-              <option value="DD">DD</option>
-              <option value="DG">DG</option>
-              <option value="DCD">DCD</option>
-              <option value="DCG">DCG</option>
-              <option value="G">G</option>
-            </select>
-          </div>
-        </div>
-        <div class="footer">
-          <div class="buttons">
-            <button type="submit">
-              <i class="fas fa-user-plus"></i>Créer la TEAM
-            </button>
-            <i class="fas fa-check-circle"></i>
-            <i class="fas fa-exclamation"></i>
-            <small>Message d'erreur</small>
-          </div>
-          <div class="buttons">
-            <button type="reset"><i class="fas fa-user-plus"></i>RESET</button>
-          </div>
-        </div>
-      </form>
-      
     </div>
-
-
-    
-    <div class="container" id="droite">
-      <div class="header">
-        <h2>POSTE</h2>
-      </div>
-      <form class="formations" id="positions">
-        <div class="form-positions">
-          <label for="">BUTEUR</label>
-          <input type="text" id="BU" readonly />
+        <div class="postes">
+            <div>
+                <div class="header">
+                    <h2 tabindex="11">Postes</h2>
+                </div>
+                <div class="liste-postes">
+                    <div>
+                        <label>Buteur</label>
+                        <div class="joueur1">
+                            <textarea id="BU" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Ailier Droit</label>
+                        <div class="joueur2">
+                            <textarea id="AD" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Ailier Gauche</label>
+                        <div class="joueur3">
+                            <textarea id="AG" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Milieu Offensif Droit</label>
+                        <div class="joueur4">
+                            <textarea id="MOD" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Milieu Offensif Gauche</label>
+                        <div class="joueur5">
+                            <textarea id="MOG" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Milieu Défensif</label>
+                        <div class="joueur6">
+                            <textarea id="MDC" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Défenseur Droit</label>
+                        <div class="joueur7">
+                            <textarea id="DD" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Défenseur Gauche</label>
+                        <div class="joueur8">
+                            <textarea id="DG" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Défenseur Central Droit</label>
+                        <div class="joueur9">
+                            <textarea id="DCD" readonly></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Défenseur Central Gauche</label>
+                        <div class="joueur10">
+                            <textarea id="DCG" readonly></textarea>
+                        </div>
+                    </div>
+                    <div style="margin-left: auto; margin-right: auto;">
+                        <label>Gardien</label>
+                        <div class="joueur11">
+                            <textarea id="G" readonly></textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-        <div class="form-positions">
-          <label for="">AILIER DROITE</label>
-          <input type="text" id="AD" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">AILIER GAUCHE</label>
-          <input type="text" id="AG" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">MILIEU OFFENSIF DROITE</label>
-          <input type="text" id="MOCD" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">MILIEU OFFENSIF GAUCHE</label>
-          <input type="text" id="MOCG" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">MILIEU DEFENSIF</label>
-          <input type="text" id="MDC" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">DEFENSEUR DROIT</label>
-          <input type="text" id="DD" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">DEFENSEUR GAUCHE</label>
-          <input type="text" id="DG" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">DEFENSEUR CENTRAL DROIT</label>
-          <input type="text" id="DCD" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">DEFENSEUR CENTRAL GAUCHE</label>
-          <input type="text" id="DCG" readonly />
-        </div>
-        <div class="form-positions">
-          <label for="">GARDIEN</label>
-          <input type="text" id="G" readonly />
-        </div>
-      </form>
     </div>
-  </body>
+</body>
 </html>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="lol.js"></script>
 </head>
-<body class="body">
+<body id="bodyLOL">
     <nav class = "navbar">
         <a href="index.html" class="logo">
             <img src="image/PPPerce.png" class="logo">
@@ -17,12 +17,10 @@
             <ul>
                 <li class="active"><a href = "fifa.html">CLUB PRO</a></li>
                 <li class="active"><a href = "">EQUIPES LOL</a></li>
-                <li class="active"><a href = "https://bit.ly/roadto_m5">MAIRISE 5</a></li>
+                <li class="active"><a href = "https://bit.ly/roadto_m5">MAITRISE 5</a></li>
             </ul>
         </div>
     </nav>
-    <!--Unranked DIV container qui contiendra l'emplacement de 10 inputs pour le nom de 10 joueurs ainsi que leurs ranks à choisir avec un select à côté(iron, bronze, silver, gold, platine, emeraude, diamant, master, grandmaster, challenger), ce qui ensuite génerera 2 équipes équilibrés en fonction des ranksUnranked-->
-
     <div class="container">
         <div class="liste-joueurs">
         <div class="header">
@@ -243,7 +241,7 @@
                 <button class="btn-generate">Générer</button>
                 <button class="btn-reset">Reset</button>
                 <div class="switch-div">
-                    <label>Équilibrage des équipes:</label>
+                    <label>Équilibrage des équipes :</label>
                     <div class="switch-container">
                         <input type="checkbox" id="balance-switch" class="balance-switch" checked>
                         <label for="balance-switch" class="switch-label"></label>
@@ -255,7 +253,7 @@
         <div class="equipes">
             <div class="equipe1">
                 <div class="header">
-                    <h2 contenteditable="true">Équipe 1</h2>
+                    <h2 contenteditable="true" id="nomEkip1" tabindex="11">Équipe 1</h2>
                 </div>
                 <div class="equipe1-joueurs">
                     <div class="joueur1">
@@ -277,7 +275,7 @@
             </div>
             <div class="equipe2">
                 <div class="header">
-                    <h2 contenteditable="true">Équipe 2</h2>
+                    <h2 contenteditable="true" id="nomEkip2" tabindex="12">Équipe 2</h2>
                 </div>
                 <div class="equipe2-joueurs">
                     <div class="joueur6">
