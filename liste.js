@@ -1,3 +1,4 @@
+
 // La recuperation des elements 
 const form = document.querySelector('#form');
 const joueurs = []; // Utilisez un tableau pour gérer les joueurs dynamiquement
@@ -17,10 +18,10 @@ form.addEventListener('submit', e => {
 
 form.addEventListener('reset', e => {
     e.preventDefault();
-    let list_poste4 = ['BU', 'AD', 'AG', 'MOCD', 'MOCG', 'MDC', 'DD', 'DG', 'DCD', 'DCG', 'G'];
-    reset(list_poste4);
     resetRolesAndPlayers();
-    setReset(joueurs[10]); // Utilisez le dernier joueur pour reset
+    for (let i = 0; i < joueurs.length; i++) {
+        setReset(joueurs[i]);
+    }
 });
 
 
@@ -28,8 +29,7 @@ form.addEventListener('reset', e => {
 function team() {
     // Reset des champs
     let listPoste = ['BU', 'AD', 'AG', 'MOCD', 'MOCG', 'MDC', 'DD', 'DG', 'DCD', 'DCG', 'G'];
-    reset(listPoste);
-    setReset(joueurs[10]);
+    reset(listPoste); // Reset des postes
 
     // Obtenir toutes les valeurs des inputs
     let listPlayeurBrut = joueurs.map(joueur => joueur.value.trim());
@@ -70,6 +70,10 @@ function team() {
         fusion.forEach(([joueur, poste]) => {
             document.getElementById(poste).value = joueur;
         });
+        // Reset des erreurs
+        for (let i = 0; i < joueurs.length; i++) {
+            setReset(joueurs[i]);
+        }
     }
     
     let teamComposition = "Composition de l'équipe:\n";
@@ -92,7 +96,7 @@ function removeItemOnce(array, value) {
 }
 
 function reset(array) {
-    array.forEach(perrr => {
+    array.forEach(perrr => { // cette fonction permet de vider les champs de saisie
         let elem = document.getElementById(perrr);
         if (elem) elem.value = '';
     });
@@ -105,19 +109,23 @@ function resetRolesAndPlayers() {
 
 function doublon(array, array2) {
     let statut = "ok";
-    let unique = array.filter((x, i, a) => a.indexOf(x) === i);
-    let unique2 = array2.filter((x, i, a) => a.indexOf(x) === i);
-    if (array.length !== unique.length) {
-        let message = 'Il y a 2 fois le meme joueur';
-        console.log("2 fois le même joueur !");
-        setError(joueurs[10], message); // Affiche l'erreur sur le dernier joueur
-        statut = "ko";
-    } else if (array2.length !== unique2.length) {
-        let message = 'Il y a 2 fois le meme role';
-        console.log("2 fois le même rôle !");
-        setError(joueurs[10], message); // Affiche l'erreur sur le dernier joueur
-        statut = "ko";
-    }
+    console.log(array);
+     array.forEach((item, index) => {
+        if (array.indexOf(item) !== index) {
+            console.log("Index: "+ index + " Item: "+ item);
+            setError(joueurs[index], 'Joueur déjà sélectionné');
+            statut = "ko";
+            return statut;
+        }
+        });
+    array2.forEach((item, index) => {
+        if (array2.indexOf(item) !== index) {
+            console.log("Index: "+ index + " Item: "+ item);
+            setError(roles[index], 'Rôle déjà sélectionné');
+            statut = "ko";
+            return statut;
+        }
+    });
     return statut;
 }
 
@@ -133,9 +141,10 @@ function setError(elem, message) {
 
 function setReset(elem) {
     const formControl = elem.parentElement;
+    console.log(formControl);
     const small = formControl.querySelector('small');
     // Efface le message d'erreur
-    small.innerText = '';
+    small.innerText = 'Message d\'erreur';
     formControl.className = 'form-control';
 }
 

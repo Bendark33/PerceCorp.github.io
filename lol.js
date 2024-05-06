@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //         silver: 4,
   //         gold: 8,
   //         platine: 16,
-  //         emeraude: 32, // Notez que le rang Emeraude n'existe pas officiellement
+  //         emeraude: 32, 
   //         diamant: 64,
   //         master: 128,
   //         grandmaster: 256,
@@ -38,20 +38,30 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 1; i <= 10; i++) {
             const playerName = getCookie(`j${i}_name`);
             const playerRank = getCookie(`j${i}_rank`);
+            const nomEkip = getCookie(`nomEkip1`);
+            const nomEkip2 = getCookie(`nomEkip2`);
             if (playerName !== '') {
                 document.getElementById(`j${i}`).value = playerName;
             }
             if (playerRank !== '') {
                 document.getElementById(`rank-select${i}`).value = playerRank;
             }
+            if(nomEkip !== '') {
+                document.getElementById('nomEkip1').innerHTML = nomEkip;
+            }
+            if(nomEkip2 !== '') {
+                document.getElementById('nomEkip2').innerHTML = nomEkip2;
+            }
+          
         }
-    }
+      }
     
     function generateTeams() {
         
         const players = [];
         const isBalanceOn = document.getElementById('balance-switch').checked; // Cela retourne true si l'interrupteur est sur ON
-
+        let nomEkip = document.getElementById('nomEkip1').innerHTML;
+        let nomEkip2 = document.getElementById('nomEkip2').innerHTML;
 
         for (let i = 1; i <= 10; i++) {
             const playerName = document.getElementById(`j${i}`).value.trim();
@@ -60,9 +70,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Enregistrement des cookies
                 setCookie(`j${i}_name`, playerName, 365);
                 setCookie(`j${i}_rank`, playerRank, 365);
+                setCookie(`nomEkip1`, nomEkip, 365);
+                setCookie(`nomEkip2`, nomEkip2, 365);
+        }
+        // Vérification des doublons
+        let array = [];
+        players.forEach(player => {
+            array.push(player.name);
+        });
+        doublon(array);
+        if (doublon(array) === "ko") {
+            return;
         }
         shuffleArray(players);
-        console.log("Liste joueurs:", players);
+        console.log("Liste joueurs :", players);
         
         let rankTotal = 0;
         players.forEach(player => rankTotal += player.rank);
@@ -136,7 +157,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Suppression des cookies
             setCookie(`j${i}_name`, '', -1);
             setCookie(`j${i}_rank`, '', -1);
-        }
+          }
+          document.getElementById('nomEkip1').innerHTML = 'Équipe 1';
+          document.getElementById('nomEkip2').innerHTML = 'Équipe 2';
+          setCookie(`nomEkip1`, 'Équipe 1', -1);
+          setCookie(`nomEkip2`, 'Équipe 2', -1);
 
     }
 
@@ -276,11 +301,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       
     function copyToClipboard(team1, team2) {
-        let teamComposition = "##Equipe 1:\n";
+        let nomEkip = document.getElementById('nomEkip1').innerHTML;
+        let nomEkip2 = document.getElementById('nomEkip2').innerHTML;
+        let teamComposition = `##${nomEkip}:\n`;
         team1.forEach(player => {
             teamComposition += `| ${player.name}\n`;
         });
-        teamComposition += "\n##Equipe 2:\n";
+        teamComposition += `##${nomEkip2}:\n`;
         team2.forEach(player => {
             teamComposition += `| ${player.name}\n`;
         });
@@ -291,7 +318,39 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
      
-
+    function doublon(array, array2) {
+      let statut = "ok";
+      let indexError = 0;
+      let arrayIndex = 0;
+       array.forEach((item, index) => { // Vérification des doublons dans les tableaux
+          if (array.indexOf(item) !== index) {
+              // console.log("Index: "+ index + " Item: "+ item);
+              statut = "ko";
+              indexError = index+1;
+              return statut;
+          }
+          });
+          console.log("Array2: "+ array2);
+        // Appel de la fonction erreur avec le statut et les tableaux concernés et son index si besoin
+        if (statut === "ko") {
+            erreur(statut, indexError);
+        } else {
+            good();
+        }
+        return statut;
+      }
+      function erreur(statut, indexError) {
+        if (statut === "ko") {
+                console.log("Double de joueur");
+                document.getElementById(`j${indexError}`).classList.add('error');
+            }
+        }
+        function good(){
+            // Suppression de la classe error si elle existe
+            for (let i = 1; i <= 10; i++) {
+                document.getElementById(`j${i}`).classList.remove('error');
+            }
+        }
 
     
 });
