@@ -208,8 +208,7 @@
             </div>
             <div class="form-footer">
                 <button class="btn-generate">Générer</button>
-                <button class="btn-reset">Reset</button>
-                             
+                <button class="btn-reset">Reset</button>        
             </div>
         </div>
     </div>
@@ -285,7 +284,24 @@
                             <textarea id="G" readonly></textarea>
                         </div>
                     </div>
-                    
+                </div>
+                <div class="form-footer" style="margin-top: 30px">
+                    <div class="form-control">
+                    <label style="margin-right: 9px; margin-left: 10px">Top</label>
+                    <input type="text" id="top" oninput="validate()"/>
+                </div>
+                <div class="form-control">
+                    <label style="margin-right: 1px; margin-left: 10px;">Flop</label>
+                    <input type="text" id="flop" oninput="validate()"/>
+                </div>
+                <script>
+                    function validate() {
+                        const top = document.querySelector("#top").value;
+                        const flop = document.querySelector("#flop").value;
+                        localStorage.setItem("top1", top);
+                        localStorage.setItem("flop1", flop);
+                    }
+                    </script>
                 </div>
             </div>
         </div>

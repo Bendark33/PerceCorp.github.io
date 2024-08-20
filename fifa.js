@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const generateButton = document.querySelector('.btn-generate');
   const resetButton = document.querySelector('.btn-reset');
 
+  nameDisplayCheck()
+
   const joueurs = []; // Utilisez un tableau pour gérer les joueurs dynamiquement
   for (let i = 1; i <= 11; i++) {
     joueurs.push(document.querySelector(`#j${i}`));
@@ -165,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Reset");
     reset();
   });
-
   // Utilisation du cookie player pour récupérer les joueurs
   loadPlayersFromCookies();
 
@@ -232,5 +233,24 @@ function good(){
     }
 }
 
+function nameDisplayCheck() {
+  // vérifie si l'élément 'name' est stocké dans le web storage
+  if (localStorage.getItem("top1")) {
+    // Si c'est le cas, affiche un accueil personnalisé
+    const name = localStorage.getItem("top1");
+    document.getElementById("top").value = name
+  } else {
+    // Sinon, affiche un accueil générique
+    document.getElementById("top").value = ""
+  }
+  if (localStorage.getItem("flop1")) {
+    // Si c'est le cas, affiche un accueil personnalisé
+    const name2 = localStorage.getItem("flop1");
+    document.getElementById("flop").value = name2
+  } else {
+    // Sinon, affiche un accueil générique
+    document.getElementById("flop").value = ""
+  }
+}
 
 });
