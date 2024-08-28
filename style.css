@@ -344,3 +344,11 @@ textarea {
     margin-top: 10px;
 }
 
+.btn-swap{
+    padding: 10px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    border-radius: 15px;
+    margin-top: 8px;
+}
+

@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const generateButton = document.querySelector('.btn-generate');
   const resetButton = document.querySelector('.btn-reset');
+  const swapButton = document.querySelector('.btn-swap');
 
   nameDisplayCheck()
-
   const joueurs = []; // Utilisez un tableau pour gérer les joueurs dynamiquement
   for (let i = 1; i <= 11; i++) {
     joueurs.push(document.querySelector(`#j${i}`));
@@ -61,14 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
           // console.log("Postes restants: "+ postesRestants);
           fusion.push([joueur, poste]);
       }
-  
+      
       // Mise à jour de l'interface utilisateur si statut est "ok"
       if (statut === "ok") {
           fusion.forEach(([joueur, poste]) => {
             // console.log("Joueur: "+ joueur + " Poste: "+ poste);
               document.getElementById(poste).value = joueur;
+              
           });
       }
+      
       
       let teamComposition = "Composition de l'équipe:\n";
       fusion.forEach(pair => {
@@ -157,10 +159,16 @@ document.addEventListener('DOMContentLoaded', () => {
 }
   // Ajout des écouteurs d'événements sur les boutons
   generateButton.addEventListener('click', () => {
+    resetSelect1();
     // Pour simuler un tirage comme au casino on répète la fonction team() 10 fois
     for (let i = 0; i < 10; i++) {
       setTimeout(() => team(), i * 100);
-    }
+      if (i == 9)
+      {
+        console.log("weylax");
+        setTimeout(() => getlist(), i * 100);
+      }
+    } 
   });
 
   resetButton.addEventListener('click', () => {
@@ -169,6 +177,74 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // Utilisation du cookie player pour récupérer les joueurs
   loadPlayersFromCookies();
+
+  swapButton.addEventListener('click', () => {
+    swap();
+  });
+
+  function swap() {
+    console.log("Reset");
+    const joueurs = [];
+    const final = [];// Utilisez un tableau pour gérer les joueurs dynamiquement
+    const player = document.querySelector("#swap1").value;
+    var id = "";
+    var id2 = "";
+    for (let i = 1; i <= 11; i++) {
+    aa = document.querySelector(`.joueur${i} textarea`);
+    if (aa.value !== '')
+    {
+      if (aa.value !== player ){
+        if (aa.id !== "G")
+        joueurs.push([aa.value,aa.id]);
+        else final.push([aa.value,aa.id]);
+      }
+    else {
+      id = aa.id
+    }
+    }
+  }
+  console.log(id);
+  const indexJoueur = Math.floor(Math.random() * joueurs.length);
+  console.log(indexJoueur);
+  for (let aa = 0; aa < joueurs.length; aa++) {
+    if (aa == indexJoueur){
+      const bb = joueurs[aa];
+      id2 = bb[1];
+      final.push([bb[0],id])
+    }
+    else
+      final.push(joueurs[aa])
+    };
+
+final.push([player,id2]);
+
+console.log(final);
+  final.forEach(([joueur, poste]) => {
+    // console.log("Joueur: "+ joueur + " Poste: "+ poste);
+      document.getElementById(poste).value = joueur;
+      
+  });
+
+}
+
+function getlist() {
+  console.log("Reset");
+  var b = document.querySelector("#swap1");
+    console.log(b);
+    for (let n = 1; n <= 11; n++) {
+    aa = document.querySelector(`.joueur${n} textarea`);
+    if (aa.value !== '')
+    {
+      console.log(aa.value);
+    var lengthb = b.length;
+    b[lengthb] = new Option(aa.value); 
+    }
+   }
+}
+
+function resetSelect1() {
+  const q = document.querySelector("#swap1").options.length=1;
+}
 
 
   function doublon(array, array2) {
