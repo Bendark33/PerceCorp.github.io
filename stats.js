@@ -1,17 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 
   const generateButton = document.querySelector('.btn-generate');
   const resetButton = document.querySelector('.btn-reset');
+  console.log(111111111111111111);
+  // const response = await fetch('https://cors-anywhere.herokuapp.com/https://proclubs.ea.com/api/fc/members/stats?platform=common-gen5&clubId=5272461', {
+  //   method: 'GET',
+  //   credentials: 'include', // include, *same-origin, omit
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(data) // body data type must match "Content-Type" header
+  // });
+  // // console.log("aaaaa");
+  // // console.log(response);
 
+  // fetch("https://proclubs.ea.com/api/fc/members/stats?platform=common-gen5&clubId=5272461")
+  // .then(function(response){
+  //  console.log(response);
+  //     return response;
+  // })
+  // .then(function(data){
+  //     console.log(data);
+  // })
+  function solve(){
+    var invocation = new XMLHttpRequest();
+var url = "https://cors-anywhere.herokuapp.com/https://proclubs.ea.com/api/fc/members/stats?platform=common-gen5&clubId=5272461";
+console.log("pppppp");
+function callOtherDomain() {
+  if (invocation) {
+    invocation.open("GET", url, true);
+    invocation.onreadystatechange = handler;
+    invocation.send();
+  }
+  console.log("ppppvvvvvvvvp");
+}
+  }
+solve();
 
-  fetch("https://proclubs.ea.com/api/fc/members/stats?platform=common-gen5&clubId=5272461")
-  .then(function(response){
-      return response.json();
-  })
-  .then(function(data){
-      console.log(data);
-  })
+console.log()
 
+  console.log(22221111100000);
   const joueurs = []; // Utilisez un tableau pour gérer les joueurs dynamiquement
   for (let i = 1; i <= 11; i++) {
     joueurs.push(document.querySelector(`#j${i}`));
